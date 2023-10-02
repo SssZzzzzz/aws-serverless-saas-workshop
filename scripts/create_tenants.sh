@@ -37,7 +37,7 @@ done
 
 SAAS_ADMIN_URL_STAGE="prod"
 CURRENT_REGION=$(aws configure get region || echo "$AWS_DEFAULT_REGION")
-SAAS_ADMIN_URL="https://${api_gw_id}.execute-api.${CURRENT_REGION}.amazonaws.com/${SAAS_ADMIN_URL_STAGE}" # ex. https://m6slpkzugb.execute-api.us-east-1.amazonaws.com
+SAAS_ADMIN_URL="https://${api_gw_id}.execute-api.${CURRENT_REGION}.amazonaws.com/${SAAS_ADMIN_URL_STAGE}" # ex. https://m6slpkzugb.execute-api.us-east-2.amazonaws.com
 
 echo "EMAIL_ALIAS=${EMAIL_ALIAS}"
 echo "EMAIL_DOMAIN=${EMAIL_DOMAIN}"

@@ -3,7 +3,7 @@
 ## This script aims to clean up resources created for the
 ## SaaS Serverless Workshop. This script is based on the guidance
 ## provided here:
-## https://catalog.us-east-1.prod.workshops.aws/workshops/b0c6ad36-0a4b-45d8-856b-8a64f0ac76bb/en-US/cleanup
+## https://catalog.us-east-2.prod.workshops.aws/workshops/b0c6ad36-0a4b-45d8-856b-8a64f0ac76bb/en-US/cleanup
 ##
 ## Note that this script can also be used to clean up resources for the
 ## Serverless SaaS Reference Solution as outlined here:

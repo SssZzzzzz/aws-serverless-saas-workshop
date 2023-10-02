@@ -6,7 +6,7 @@ By the end of this workshop you will be able to understand the challenges that a
 This workshop is inspired by the [SaaS Factory Serverless SaaS reference solution](https://github.com/aws-samples/aws-saas-factory-ref-solution-serverless-saas). At the end of this workshop, you will build a fully functional SaaS application that will be similar to this reference solution.
 
 # Starting the workshop
-Follow this link for detailed instructions to run this workshop in your AWS Account: https://catalog.us-east-1.prod.workshops.aws/v2/workshops/b0c6ad36-0a4b-45d8-856b-8a64f0ac76bb/en-US
+Follow this link for detailed instructions to run this workshop in your AWS Account: https://catalog.us-east-2.prod.workshops.aws/v2/workshops/b0c6ad36-0a4b-45d8-856b-8a64f0ac76bb/en-US
 
 # License
 The documentation is made available under the Creative Commons Attribution-ShareAlike 4.0 International License. See the LICENSE file.
