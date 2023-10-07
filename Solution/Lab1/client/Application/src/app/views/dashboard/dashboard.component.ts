@@ -47,8 +47,10 @@ export class DashboardComponent implements AfterViewInit {
   public barChartPlugins = [DataLabelsPlugin];
 
   ngAfterViewInit(): void {
+    console.log(111)
     this.isLoading = true;
     this.dashboardSvc.fetch().subscribe((data:any) => {
+      console.log(222)
       this.orderData = data;
       console.log(this.orderData, 'this.orderData')
       this.orderData.forEach((item: any) => {
@@ -58,8 +60,9 @@ export class DashboardComponent implements AfterViewInit {
       this.barChartData.labels = this.labels;
       this.barChartData.datasets[0].data = this.datasets;
       console.log(this.barChartData, 'this.barChartData')
-      this.isLoading = false;
     });
+    console.log(333)
+    this.isLoading = false;
     // this.orderData = [
     //   {
     //     "orderName": "e",
