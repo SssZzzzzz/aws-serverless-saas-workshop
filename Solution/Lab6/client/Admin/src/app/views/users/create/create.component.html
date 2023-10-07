@@ -3,11 +3,10 @@
     <div class="col-md-6">
       <form [formGroup]="userForm">
       <mat-card class="card">
-        <mat-card-title>Create User</mat-card-title>
-        <mat-card-subtitle>Upon submission, a new user account will be created and we will send an email to the provided address with login instructions.</mat-card-subtitle>
+        <mat-card-title>用户追加</mat-card-title>
         <mat-card-content>
             <mat-form-field appearance="outline">
-              <mat-label>Username</mat-label>
+              <mat-label>ユーザー名</mat-label>
               <input
                 matInput
                 id="username"
@@ -20,7 +19,7 @@
             <br />
 
             <mat-form-field appearance="outline">
-              <mat-label>Email</mat-label>
+              <mat-label>メール</mat-label>
               <input
                 matInput
                 id="useremail"
@@ -34,7 +33,7 @@
             <br />
 
             <mat-form-field appearance="outline">
-              <mat-label>User Role</mat-label>
+              <mat-label>ユーザーの役割</mat-label>
               <input
                 matInput
                 id="userrole"
@@ -48,13 +47,13 @@
             <br />
 
             <mat-form-field appearance="outline">
-              <mat-label>Tenant Id</mat-label>
+              <mat-label>テナント Id</mat-label>
               <input
                 matInput
                 id="tenantid"
                 name="tenantid"
                 formControlName="tenantId"
-                placeholder="Tenant Id"
+                placeholder="テナント Id"
                 required
               />
               <mat-icon matSuffix>folder_special</mat-icon>
@@ -70,7 +69,7 @@
                 (click)="onSubmit()"
                 type="button"
                 >
-                  <span>Create</span>
+                  <span>保存</span>
                 </button>
                 <button
                   mat-raised-button
@@ -78,7 +77,7 @@
                   routerLink="/users"
                   type="button"
                 >
-                  <span>Cancel</span>
+                  <span>キャンセル</span>
                 </button>
               </div>
             </mat-card-actions>
