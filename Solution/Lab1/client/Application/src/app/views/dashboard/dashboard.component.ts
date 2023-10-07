@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit} from '@angular/core';
+import { Component, ViewChild, AfterViewInit} from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
@@ -11,7 +11,7 @@ import DataLabelsPlugin from 'chartjs-plugin-datalabels';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements AfterViewInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
   orderData: any = [];
   labels: any = [];
@@ -46,7 +46,7 @@ export class DashboardComponent implements OnInit {
   public barChartType: ChartType = 'bar';
   public barChartPlugins = [DataLabelsPlugin];
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.isLoading = true;
     this.dashboardSvc.fetch().subscribe((data:any) => {
       this.orderData = data;
