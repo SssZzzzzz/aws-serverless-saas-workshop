@@ -20,7 +20,7 @@ export class DashboardComponent implements AfterViewInit {
   barChartData: ChartData<'bar'> = {
     labels: [],
     datasets: [
-      { data: [], label: '订单' }
+      { data: [], label: '注文' }
     ],
   };
   public barChartOptions: ChartConfiguration['options'] = {

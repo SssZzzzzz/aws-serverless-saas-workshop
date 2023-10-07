@@ -17,5 +17,5 @@ export class AppComponent {
       this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/logo.svg')
     );
   }
-  title = 'POC 商城';
+  title = 'POC ショッピングモール';
 }

@@ -8,14 +8,14 @@
         mat-raised-button
         color="primary"
       >
-        新建订单
+        注文追加
       </button>
     </div>
     <div class="col-md-12">
       <table mat-table [dataSource]="orderData" class="mat-elevation-z1">
         <!-- Name Column -->
         <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef>名称</th>
+          <th mat-header-cell *matHeaderCellDef>注文名称</th>
           <td mat-cell *matCellDef="let element">
             <a class="link" routerLink="/orders/detail/{{ element.orderId }}">
               {{ element.orderName }}
@@ -31,7 +31,7 @@
         </ng-container>
 
         <ng-container matColumnDef="total">
-          <th mat-header-cell *matHeaderCellDef>金额</th>
+          <th mat-header-cell *matHeaderCellDef>金額</th>
           <td mat-cell *matCellDef="let element">
             {{ sum(element) | currency }}
           </td>

@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit {
   public lineChartData: Array<any> = [
     {
       data: this.lineChartData1,
-      label: 'Current',
+      label: '現在',
       backgroundColor: 'rgba(148,159,177,0.2)',
       borderColor: 'rgba(148,159,177,1)',
       pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -46,7 +46,7 @@ export class DashboardComponent implements OnInit {
     },
     {
       data: this.lineChartData2,
-      label: 'Previous',
+      label: '以前',
       backgroundColor: 'rgba(77,83,96,0.2)',
       borderColor: 'rgba(77,83,96,1)',
       pointBackgroundColor: 'rgba(77,83,96,1)',

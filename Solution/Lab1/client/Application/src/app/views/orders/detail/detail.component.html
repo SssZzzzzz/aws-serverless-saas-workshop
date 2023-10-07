@@ -2,7 +2,7 @@
   <div class="invoice-header">
     <div class="row">
       <div class="col-xs-8">
-        <h1>订单详情 <small>创建时间</small></h1>
+        <h1>注文詳細 <small>时间</small></h1>
         <h5 class="text-muted">
           NO: {{ orderId$ | async }} | Date: {{ today() | date }}
         </h5>
@@ -13,17 +13,17 @@
     <div class="row">
       <div class="card">
         <div class="card-header">
-          <h3>服务 / 商品</h3>
+          <h3>サービス / 商品</h3>
         </div>
         <table class="table table-bordered table-responsive no-bottom-margin">
           <thead>
             <tr>
-              <th>商品 / 详情</th>
-              <th class="text-center colfix">单价</th>
-              <th class="text-center colfix">总价</th>
-              <th class="text-center colfix">打折</th>
+              <th>商品 / 詳細</th>
+              <th class="text-center colfix">単価</th>
+              <th class="text-center colfix">合計価格</th>
+              <th class="text-center colfix">割引</th>
               <th class="text-center colfix">稅</th>
-              <th class="text-center colfix">总共</th>
+              <th class="text-center colfix">合計</th>
             </tr>
           </thead>
           <tbody>
@@ -40,7 +40,7 @@
               <td class="text-right">
                 <span class="mono">{{ sum(op) | currency }}</span>
                 <br />
-                <small class="text-muted">{{ op.quantity }} 单价</small>
+                <small class="text-muted">{{ op.quantity }} 単価</small>
               </td>
               <td class="text-right">
                 <span class="mono">$0.00</span>
@@ -50,7 +50,7 @@
               <td class="text-right nowrap">
                 <span class="mono">{{ tax(op) | currency }}</span>
                 <br />
-                <small class="text-muted">销售税 8.9%</small>
+                <small class="text-muted">稅 8.9%</small>
               </td>
               <td class="text-right">
                 <strong class="mono">{{ total(op) | currency }}</strong>

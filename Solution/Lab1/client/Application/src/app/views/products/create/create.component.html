@@ -1,40 +1,40 @@
 <div class="product-form">
   <form [formGroup]="productForm" (submit)="submit()">
     <mat-card class="card">
-      <mat-card-title>新建商品</mat-card-title>
+      <mat-card-title>製品追加</mat-card-title>
       <mat-card-content>
         <mat-form-field>
-          <mat-label>商品名称</mat-label>
+          <mat-label>製品名</mat-label>
           <input
             matInput
-            placeholder="填写商品名称"
+            placeholder="製品名"
             formControlName="name"
             required
           />
-          <mat-error *ngIf="name?.invalid">名称必填</mat-error>
+          <mat-error *ngIf="name?.invalid">製品名</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <mat-label>商品价格</mat-label>
+          <mat-label>商品価格</mat-label>
           <input
             type="number"
             matInput
-            placeholder="填写价格"
+            placeholder="商品価格"
             formControlName="price"
             required
           />
-          <mat-error *ngIf="price?.invalid">价格必填</mat-error>
+          <mat-error *ngIf="price?.invalid">商品価格</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <mat-label>单位</mat-label>
+          <mat-label>単位</mat-label>
           <input
             matInput
             type="text"
             formControlName="sku"
-            placeholder="填写单位"
+            placeholder="単位"
           />
         </mat-form-field>
         <mat-form-field>
-          <mat-label>分类</mat-label>
+          <mat-label>分類</mat-label>
           <mat-select
             formControlName="category"
             required
@@ -52,10 +52,10 @@
               (click)="(submit)"
               [disabled]="!productForm.valid"
             >
-              提交
+              保存
             </button>
             <button mat-raised-button color="warn" (click)="cancel()">
-              取消
+              キャンセル
             </button>
           </div>
         </mat-card-footer>

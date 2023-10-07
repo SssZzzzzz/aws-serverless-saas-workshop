@@ -3,20 +3,20 @@
     <div class="col-md-12">
       <form [formGroup]="orderForm" (submit)="submit()">
         <mat-card class="card">
-          <mat-card-title>新建订单</mat-card-title>
+          <mat-card-title>注文追加</mat-card-title>
           <mat-card-content>
             <mat-form-field>
-              <mat-label>订单名称</mat-label>
+              <mat-label>注文名</mat-label>
               <input
                 matInput
-                placeholder="填写订单名称"
+                placeholder="注文名を入力してください"
                 formControlName="orderName"
                 required
               />
-              <mat-error *ngIf="name?.invalid">名称必填</mat-error>
+              <mat-error *ngIf="name?.invalid">注文名必須</mat-error>
             </mat-form-field>
             <div class="order-products">
-              <div *ngFor="let op of orderProducts" class="row">
+              <div *ngFor="let op of orderProduts" class="row">
                 <div class="col-6">{{ op.product.name }}</div>
                 <div class="col-3">{{ op.product.price | currency }}</div>
                 <div class="col-1">{{ op.quantity || 0 }}</div>
@@ -27,7 +27,7 @@
                     aria-label="Icon button with add icon"
                     (click)="add(op)"
                   >
-                    <mat-icon>添加</mat-icon>
+                    <mat-icon>追加</mat-icon>
                   </button>
                 </div>
                 <div class="col-1">
@@ -59,7 +59,7 @@
                   type="submit"
                   [disabled]="!orderForm.valid || !productQuantity"
                 >
-                  提交
+                  保存
                 </button>
                 <button
                   mat-raised-button
@@ -67,7 +67,7 @@
                   [routerLink]="['/orders']"
                   type="button"
                 >
-                  取消
+                  キャンセル
                 </button>
               </div>
             </mat-card-footer>

@@ -7,9 +7,10 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="(isHandset$ | async) === false"
   >
-    <mat-toolbar
-      ><mat-icon svgIcon="saas-commerce" class="logo"></mat-icon
-    ></mat-toolbar>
+    <mat-toolbar>
+      <span class="title" routerLink="/">POC ショッピングモール</span>
+      <!-- <mat-icon svgIcon="saas-commerce" class="logo"></mat-icon> -->
+    </mat-toolbar>
     <mat-nav-list>
       <mat-list-item *ngFor="let navItem of navItems">
         <mat-icon mat-list-icon class="nav-icon material-symbols-outlined">{{
@@ -42,18 +43,18 @@
       <ng-template #loggedOut>
         <button mat-menu-item>
           <mat-icon class="material-symbols-outlined">lock_open</mat-icon>
-          <span>Login</span>
+          <span>ログイン</span>
         </button>
       </ng-template>
       <span style="margin: 8px">{{ username$ | async }}</span>
       <mat-divider></mat-divider>
       <button mat-menu-item>
-        <mat-icon class="material-symbols-outlined">face</mat-icon>
-        <span>Profile</span>
+        <mat-icon class="material-symbols-outlined">直面</mat-icon>
+        <span>アウトライン</span>
       </button>
       <button routerLink="/auth/info" mat-menu-item>
-        <mat-icon class="material-symbols-outlined">construction</mat-icon>
-        <span>Auth Debug</span>
+        <mat-icon class="material-symbols-outlined">建設</mat-icon>
+        <span>Authデバッグ</span>
       </button>
     </mat-menu>
     <div class="spinner-container" *ngIf="loading$ | async">
