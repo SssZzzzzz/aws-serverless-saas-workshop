@@ -55,9 +55,11 @@ export class DashboardComponent {
       this.labels.push(item.orderName);
       this.datasets.push(item.orderProducts.length)
     });
-    this.barChartData.labels = this.labels;
-    this.barChartData.datasets[0].data = this.datasets;
-    console.log(this.barChartData)
+    setTimeout(()=>{
+      this.barChartData.labels = this.labels;
+      this.barChartData.datasets[0].data = this.datasets;
+      console.log(this.barChartData)
+    },0)
   }
 
   // events
