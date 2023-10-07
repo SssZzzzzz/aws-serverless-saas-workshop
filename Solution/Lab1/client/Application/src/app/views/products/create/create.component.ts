@@ -11,7 +11,7 @@ import { ProductService } from '../product.service';
 })
 export class CreateComponent implements OnInit {
   productForm: FormGroup;
-  categories: string[] = ['category1', 'category2', 'category3', 'category4'];
+  categories: string[] = ['分类1', '分类2', '分类3', '分类4'];
   constructor(
     private fb: FormBuilder,
     private productSvc: ProductService,

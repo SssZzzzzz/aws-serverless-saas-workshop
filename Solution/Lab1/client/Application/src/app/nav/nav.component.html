@@ -9,7 +9,8 @@
     [opened]="(isHandset$ | async) === false"
   >
     <div class="sidebar-icon-container">
-      <mat-icon svgIcon="saas-commerce" class="logo"></mat-icon>
+      <!-- <mat-icon svgIcon="saas-commerce" class="logo"></mat-icon> -->
+      <span class="title" routerLink="/">POC 商城</span>
     </div>
     <mat-divider></mat-divider>
     <mat-nav-list>
@@ -24,7 +25,7 @@
   <div class="content" #main>
     <router-outlet></router-outlet>
   </div>
-  <div class="footer" #footer>
+  <!-- <div class="footer" #footer>
     <div class="footer-text">
       <span>Serverless SaaS Workshop &copy; 2022 AWS</span>
       <span class="spacer"></span>
@@ -32,6 +33,6 @@
         Powered by <a href="https://aws.amazon.com">SaaS Factory</a>
       </span>
     </div>
-  </div>
+  </div> -->
 </mat-sidenav-container>
 

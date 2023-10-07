@@ -1,19 +1,19 @@
-<div class="order-form container">
+<div class="order-form">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
       <form [formGroup]="orderForm" (submit)="submit()">
         <mat-card class="card">
-          <mat-card-title>Create new order</mat-card-title>
+          <mat-card-title>新建订单</mat-card-title>
           <mat-card-content>
             <mat-form-field>
-              <mat-label>Enter order name</mat-label>
+              <mat-label>订单名称</mat-label>
               <input
                 matInput
-                placeholder="order name"
+                placeholder="填写订单名称"
                 formControlName="orderName"
                 required
               />
-              <mat-error *ngIf="name?.invalid">Name is required</mat-error>
+              <mat-error *ngIf="name?.invalid">名称必填</mat-error>
             </mat-form-field>
             <div class="order-products">
               <div *ngFor="let op of orderProducts" class="row">
@@ -27,7 +27,7 @@
                     aria-label="Icon button with add icon"
                     (click)="add(op)"
                   >
-                    <mat-icon>add</mat-icon>
+                    <mat-icon>添加</mat-icon>
                   </button>
                 </div>
                 <div class="col-1">
@@ -37,7 +37,7 @@
                     aria-label="Icon button with remove icon"
                     (click)="remove(op)"
                   >
-                    <mat-icon>remove</mat-icon>
+                    <mat-icon>删除</mat-icon>
                   </button>
                 </div>
               </div>
@@ -59,7 +59,7 @@
                   type="submit"
                   [disabled]="!orderForm.valid || !productQuantity"
                 >
-                  Submit
+                  提交
                 </button>
                 <button
                   mat-raised-button
@@ -67,7 +67,7 @@
                   [routerLink]="['/orders']"
                   type="button"
                 >
-                  Cancel
+                  取消
                 </button>
               </div>
             </mat-card-footer>

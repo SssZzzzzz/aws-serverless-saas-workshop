@@ -9,6 +9,19 @@
   margin: 20px;
   display: flex;
   flex-direction: column;
+  form {
+    width: 100%;
+    .mat-card-content {
+      width: 100%;
+      .mat-form-field {
+        width: 100%;
+      }
+    }
+  }
+}
+
+::ng-deep .mat-form-field-wrapper {
+  width: 100% !important;
 }
 
 .mat-card-title {

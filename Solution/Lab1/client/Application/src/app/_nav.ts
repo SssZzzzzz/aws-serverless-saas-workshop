@@ -6,12 +6,12 @@ import { INavData } from './models';
 
 export const navItems: INavData[] = [
   {
-    name: 'Products',
+    name: '商品',
     url: '/products',
     icon: 'sell',
   },
   {
-    name: 'Orders',
+    name: '订单',
     url: '/orders',
     icon: 'shopping_cart',
   },

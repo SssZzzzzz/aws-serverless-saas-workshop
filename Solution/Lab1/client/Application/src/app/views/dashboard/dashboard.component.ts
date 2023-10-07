@@ -3,6 +3,7 @@ import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { DashboardService } from './dashboard.service';
 
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 @Component({
@@ -12,7 +13,9 @@ import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 })
 export class DashboardComponent {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
-
+  orderData: any = [];
+  labels: any = [];
+  datasets: any = [];
   public barChartOptions: ChartConfiguration['options'] = {
     responsive: true,
     maintainAspectRatio: false,
@@ -20,7 +23,7 @@ export class DashboardComponent {
     scales: {
       x: {},
       y: {
-        min: 10,
+        min: 0,
       },
     },
     plugins: {
@@ -37,12 +40,25 @@ export class DashboardComponent {
   public barChartPlugins = [DataLabelsPlugin];
 
   public barChartData: ChartData<'bar'> = {
-    labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],
+    labels: [],
     datasets: [
-      { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-      { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },
+      { data: [65, 59, 80, 81, 56, 55, 40], label: '订单' }
     ],
   };
+
+  ngOnInit(): void {
+    this.dashboardSvc.fetch().subscribe((data:any) => {
+      this.orderData = data;
+      console.log(this.orderData, 'this.orderData')
+    });
+    this.orderData.forEach((item: any) => {
+      this.labels.push(item.orderName);
+      this.datasets.push(item.orderProducts.length)
+    });
+    this.barChartData.labels = this.labels;
+    this.barChartData.datasets[0].data = this.datasets;
+    console.log(this.barChartData)
+  }
 
   // events
   public chartClicked({
@@ -80,21 +96,15 @@ export class DashboardComponent {
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 },
+          { title: 'Card 1', cols: 1, rows: 1 }
         ];
       }
 
       return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 },
+        { title: 'Card 1', cols: 2, rows: 1 }
       ];
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private dashboardSvc: DashboardService, private breakpointObserver: BreakpointObserver) {}
 }
