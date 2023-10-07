@@ -7,6 +7,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { NgChartsModule } from 'ng2-charts';
 
@@ -24,6 +25,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     MatListModule,
     MatMenuModule,
     NgChartsModule,
+    MatProgressSpinnerModule
   ],
 })
 export class DashboardModule {}

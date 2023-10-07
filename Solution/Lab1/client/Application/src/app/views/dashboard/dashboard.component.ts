@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit} from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
@@ -11,11 +11,12 @@ import DataLabelsPlugin from 'chartjs-plugin-datalabels';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
   orderData: any = [];
   labels: any = [];
   datasets: any = [];
+  isLoading: boolean = true;
   barChartData: ChartData<'bar'> = {
     labels: [],
     datasets: [
@@ -46,6 +47,7 @@ export class DashboardComponent {
   public barChartPlugins = [DataLabelsPlugin];
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.dashboardSvc.fetch().subscribe((data:any) => {
       this.orderData = data;
       console.log(this.orderData, 'this.orderData')
@@ -53,13 +55,50 @@ export class DashboardComponent {
         this.labels.push(item.orderName);
         this.datasets.push(item.orderProducts.length)
       });
-      setTimeout(()=>{
-        this.barChartData.labels = this.labels;
-        this.barChartData.datasets[0].data = this.datasets;
-        console.log(this.barChartData, 'this.barChartData')
-      },0)
+      this.barChartData.labels = this.labels;
+      this.barChartData.datasets[0].data = this.datasets;
+      console.log(this.barChartData, 'this.barChartData')
+      this.isLoading = false;
     });
-    
+    // this.orderData = [
+    //   {
+    //     "orderName": "e",
+    //     "orderProducts": [
+    //       {
+    //         "price": "666",
+    //         "productId": "234",
+    //         "quantity": 1
+    //       }
+    //     ]
+    //   },
+    //   {
+    //     "orderName": "e",
+    //     "orderProducts": [
+    //       {
+    //         "price": "666",
+    //         "productId": "12213",
+    //         "quantity": 1
+    //       }
+    //     ]
+    //   },
+    //   {
+    //     "orderName": "hagah",
+    //     "orderProducts": [
+    //       {
+    //         "price": "666",
+    //         "productId": "12213",
+    //         "quantity": 1
+    //       }
+    //     ]
+    //   }
+    // ]
+    // this.orderData.forEach((item: any) => {
+    //   this.labels.push(item.orderName);
+    //   this.datasets.push(item.orderProducts.length)
+    // });
+    // this.barChartData.labels = this.labels;
+    // this.barChartData.datasets[0].data = this.datasets;
+    // console.log(this.barChartData, 'this.barChartData')
     
   }
 
