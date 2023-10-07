@@ -21,7 +21,8 @@ user_pool_operation_user = os.environ['OPERATION_USERS_USER_POOL']
 app_client_operation_user = os.environ['OPERATION_USERS_APP_CLIENT']
 
 def lambda_handler(event, context):
-    
+
+    apigateway_url = ""
     #get JWT token after Bearer from authorization
     token = event['authorizationToken'].split(" ")
     if (token[0] != 'Bearer'):
