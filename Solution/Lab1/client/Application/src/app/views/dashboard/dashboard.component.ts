@@ -59,6 +59,7 @@ export class DashboardComponent implements AfterViewInit {
       });
       this.barChartData.labels = this.labels;
       this.barChartData.datasets[0].data = this.datasets;
+      this.chart?.update();
       console.log(this.barChartData, 'this.barChartData')
     });
     console.log(333)
