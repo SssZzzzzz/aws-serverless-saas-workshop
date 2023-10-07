@@ -16,6 +16,12 @@ export class DashboardComponent {
   orderData: any = [];
   labels: any = [];
   datasets: any = [];
+  barChartData: ChartData<'bar'> = {
+    labels: [],
+    datasets: [
+      { data: [], label: '订单' }
+    ],
+  };
   public barChartOptions: ChartConfiguration['options'] = {
     responsive: true,
     maintainAspectRatio: false,
@@ -39,27 +45,22 @@ export class DashboardComponent {
   public barChartType: ChartType = 'bar';
   public barChartPlugins = [DataLabelsPlugin];
 
-  public barChartData: ChartData<'bar'> = {
-    labels: [],
-    datasets: [
-      { data: [65, 59, 80, 81, 56, 55, 40], label: '订单' }
-    ],
-  };
-
   ngOnInit(): void {
     this.dashboardSvc.fetch().subscribe((data:any) => {
       this.orderData = data;
       console.log(this.orderData, 'this.orderData')
+      this.orderData.forEach((item: any) => {
+        this.labels.push(item.orderName);
+        this.datasets.push(item.orderProducts.length)
+      });
+      setTimeout(()=>{
+        this.barChartData.labels = this.labels;
+        this.barChartData.datasets[0].data = this.datasets;
+        console.log(this.barChartData, 'this.barChartData')
+      },0)
     });
-    this.orderData.forEach((item: any) => {
-      this.labels.push(item.orderName);
-      this.datasets.push(item.orderProducts.length)
-    });
-    setTimeout(()=>{
-      this.barChartData.labels = this.labels;
-      this.barChartData.datasets[0].data = this.datasets;
-      console.log(this.barChartData)
-    },0)
+    
+    
   }
 
   // events
