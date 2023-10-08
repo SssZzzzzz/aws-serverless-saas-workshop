@@ -1,40 +1,40 @@
 <div class="product-form">
   <form [formGroup]="productForm" (submit)="submit()">
     <mat-card class="card">
-      <mat-card-title>Create new Product</mat-card-title>
+      <mat-card-title>製品追加</mat-card-title>
       <mat-card-content>
         <mat-form-field>
-          <mat-label>Enter product name</mat-label>
+          <mat-label>製品名</mat-label>
           <input
             matInput
-            placeholder="Product name"
+            placeholder="製品名"
             formControlName="name"
             required
           />
-          <mat-error *ngIf="name?.invalid">Name is required</mat-error>
+          <mat-error *ngIf="name?.invalid">製品名</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <mat-label>Enter product price</mat-label>
+          <mat-label>商品価格</mat-label>
           <input
             type="number"
             matInput
-            placeholder="Product price"
+            placeholder="商品価格"
             formControlName="price"
             required
           />
-          <mat-error *ngIf="price?.invalid">Price is required</mat-error>
+          <mat-error *ngIf="price?.invalid">商品価格</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <mat-label>SKU</mat-label>
+          <mat-label>単位</mat-label>
           <input
             matInput
             type="text"
             formControlName="sku"
-            placeholder="Enter product sku"
+            placeholder="単位"
           />
         </mat-form-field>
         <mat-form-field>
-          <mat-label>Category</mat-label>
+          <mat-label>分類</mat-label>
           <mat-select
             formControlName="category"
             required
@@ -52,10 +52,10 @@
               (click)="(submit)"
               [disabled]="!productForm.valid"
             >
-              Submit
+              保存
             </button>
             <button mat-raised-button color="warn" (click)="cancel()">
-              Cancel
+              キャンセル
             </button>
           </div>
         </mat-card-footer>

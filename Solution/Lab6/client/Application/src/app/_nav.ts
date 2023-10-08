@@ -6,22 +6,22 @@ import { INavData } from './models';
 
 export const navItems: INavData[] = [
   {
-    name: 'Dashboard',
+    name: '首页',
     url: '/dashboard',
     icon: 'insights',
   },
   {
-    name: 'Products',
+    name: '製品',
     url: '/products',
     icon: 'sell',
   },
   {
-    name: 'Orders',
+    name: '注文',
     url: '/orders',
     icon: 'shopping_cart',
   },
   {
-    name: 'Users',
+    name: '用户',
     url: '/users',
     icon: 'supervisor_account',
   },

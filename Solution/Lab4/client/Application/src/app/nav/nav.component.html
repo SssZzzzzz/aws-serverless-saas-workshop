@@ -14,7 +14,8 @@
         [opened]="(isHandset$ | async) === false"
       >
         <div class="sidebar-icon-container">
-          <mat-icon svgIcon="saas-commerce" class="logo"></mat-icon>
+          <!-- <mat-icon svgIcon="saas-commerce" class="logo"></mat-icon> -->
+          <span class="title" routerLink="/">POC ショッピングモール</span>
         </div>
         <mat-divider></mat-divider>
         <mat-nav-list>
@@ -50,36 +51,26 @@
         <ng-template #loggedOut>
           <button mat-menu-item>
             <mat-icon class="material-symbols-outlined">lock_open</mat-icon>
-            <span>Login</span>
+            <span>ログイン</span>
           </button>
         </ng-template>
         <span style="margin: 8px">{{ (username$ | async) || user.username}}</span>
         <mat-divider></mat-divider>
         <button mat-menu-item>
           <mat-icon class="material-symbols-outlined">face</mat-icon>
-          <span>Profile</span>
+          <span>アウトライン</span>
         </button>
         <button routerLink="/auth/info" mat-menu-item>
           <mat-icon class="material-symbols-outlined">construction</mat-icon>
-          <span>Auth Debug</span>
+          <span>Authデバッグ</span>
         </button>
         <button (click)="logout()" mat-menu-item>
           <mat-icon class="material-symbols-outlined">logout</mat-icon>
-          <span>Sign Out</span>
+          <span>ログアウト</span>
         </button>
       </mat-menu>
       <div class="content" #main>
         <router-outlet></router-outlet>
-      </div>
-
-      <div class="footer" #footer>
-        <div class="footer-text">
-          <span>Serverless SaaS Workshop &copy; 2022 AWS</span>
-          <span class="spacer"></span>
-          <span>
-            Powered by <a href="https://aws.amazon.com">SaaS Factory</a>
-          </span>
-        </div>
       </div>
     </mat-sidenav-container>
   </ng-template>
