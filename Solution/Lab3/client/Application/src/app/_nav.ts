@@ -21,7 +21,7 @@ export const navItems: INavData[] = [
     icon: 'shopping_cart',
   },
   {
-    name: '用户',
+    name: 'ユーザー',
     url: '/users',
     icon: 'supervisor_account',
   },

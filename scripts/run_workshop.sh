@@ -18,7 +18,7 @@ echo "################ Done running pre-req script... ################"
 echo "################ Running lab2... ################"
 
 cd ../Solution/Lab2/scripts
-./deployment.sh -s -c --email wangchunyong@163.com
+./deployment.sh -s -c --email zgwny@cn.ibm.com
 ./deploy-updates.sh
 
 echo "################ Done running lab2. ################"

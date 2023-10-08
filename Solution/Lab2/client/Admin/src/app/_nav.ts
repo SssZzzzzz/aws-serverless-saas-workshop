@@ -11,12 +11,12 @@ export const navItems: INavData[] = [
     icon: 'insights',
   },
   {
-    name: '租户',
+    name: 'テナント',
     url: '/tenants',
     icon: 'groups',
   },
   {
-    name: '用户',
+    name: 'ユーザー',
     url: '/users',
     icon: 'supervisor_account',
   },

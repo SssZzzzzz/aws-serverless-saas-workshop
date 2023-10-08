@@ -6,17 +6,17 @@ import { INavData } from './models';
 
 export const navItems: INavData[] = [
   {
-    name: '首页',
+    name: 'ダッシュボード',
     url: '/dashboard',
     icon: 'insights',
   },
   {
-    name: '租户',
+    name: 'テナント',
     url: '/tenants',
     icon: 'groups',
   },
   {
-    name: '用户',
+    name: 'ユーザー',
     url: '/users',
     icon: 'supervisor_account',
   },
