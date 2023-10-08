@@ -6,7 +6,7 @@ import { INavData } from './models';
 
 export const navItems: INavData[] = [
   {
-    name: '首页',
+    name: 'ダッシュボード',
     url: '/dashboard',
     icon: 'insights',
   },

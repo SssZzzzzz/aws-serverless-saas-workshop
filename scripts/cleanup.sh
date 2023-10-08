@@ -1,15 +1,4 @@
 #!/bin/bash
-##
-## This script aims to clean up resources created for the
-## SaaS Serverless Workshop. This script is based on the guidance
-## provided here:
-## https://catalog.us-east-2.prod.workshops.aws/workshops/b0c6ad36-0a4b-45d8-856b-8a64f0ac76bb/en-US/cleanup
-##
-## Note that this script can also be used to clean up resources for the
-## Serverless SaaS Reference Solution as outlined here:
-## https://github.com/aws-samples/aws-saas-factory-ref-solution-serverless-saas#steps-to-clean-up
-##
-##
 
 # helper function
 delete_stack_after_confirming() {
@@ -126,21 +115,45 @@ delete_stack_after_confirming "serverless-saas-pipeline"
 delete_codecommit_repo_after_confirming "aws-serverless-saas-workshop"
 
 echo "$(date) cleaning up buckets..."
+default_region=`aws configure get region`
 for i in $(aws s3 ls | awk '{print $3}' | grep -E "^serverless-saas-*|^sam-bootstrap-*"); do
-
-    if [[ -z "${skip_flag}" ]]; then
-        read -p "Delete bucket with name s3://${i} [Y/n] " -n 1 -r
+    echo "aws s3api get-bucket-location --bucket ${i} | jq -r '.LocationConstraint'"
+    bucket_region=`aws s3api get-bucket-location --bucket ${i} | jq -r '.LocationConstraint'`
+    bucket_region_isnull=`aws s3api get-bucket-location --bucket ${i} | jq -r '.LocationConstraint' | grep "null"`
+    if [ "$bucket_region_isnull" != "" ]
+    then
+        bucket_region="us-east-1"
     fi
-
-    if [[ $REPLY =~ ^[n]$ ]]; then
-        echo "$(date) NOT deleting bucket s3://${i}."
-    else
+    if [ "$default_region" == "$bucket_region" ]
+    then
         echo "$(date) emptying out s3 bucket with name s3://${i}..."
         aws s3 rm --recursive "s3://${i}"
-
         echo "$(date) deleting s3 bucket with name s3://${i}..."
         aws s3 rb "s3://${i}"
+    else
+        echo "$(date) NOT deleting bucket s3://${i}."
     fi
+    # if [ $default_region == $bucket_region ] then
+    #     echo "$(date) emptying out s3 bucket with name s3://${i}..."
+    #     aws s3 rm --recursive "s3://${i}"
+    #     echo "$(date) deleting s3 bucket with name s3://${i}..."
+    #     aws s3 rb "s3://${i}"
+    # else
+    #     echo "$(date) NOT deleting bucket s3://${i}."
+    # fi
+    # if [[ -z "${skip_flag}" ]]; then
+    #     read -p "Delete bucket with name s3://${i} [Y/n] " -n 1 -r
+    # fi
+
+    # if [[ $REPLY =~ ^[n]$ ]]; then
+    #     echo "$(date) NOT deleting bucket s3://${i}."
+    # else
+    #     echo "$(date) emptying out s3 bucket with name s3://${i}..."
+    #     aws s3 rm --recursive "s3://${i}"
+
+    #     echo "$(date) deleting s3 bucket with name s3://${i}..."
+    #     aws s3 rb "s3://${i}"
+    # fi
 done
 
 echo "$(date) cleaning up log groups..."
