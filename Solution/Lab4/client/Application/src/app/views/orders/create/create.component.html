@@ -16,7 +16,7 @@
               <mat-error *ngIf="name?.invalid">注文名必須</mat-error>
             </mat-form-field>
             <div class="order-products">
-              <div *ngFor="let op of orderProduts" class="row">
+              <div *ngFor="let op of orderProducts" class="row">
                 <div class="col-6">{{ op.product.name }}</div>
                 <div class="col-3">{{ op.product.price | currency }}</div>
                 <div class="col-1">{{ op.quantity || 0 }}</div>
