@@ -178,7 +178,7 @@ Resources:
       Handler: 'index.handler'
       Timeout: 30
       Runtime: nodejs16.x
-      ReservedConcurrentExecutions: 1
+      ReservedConcurrentExecutions: 10
       Role: !GetAtt AWSCURCrawlerLambdaExecutor.Arn
 
 
