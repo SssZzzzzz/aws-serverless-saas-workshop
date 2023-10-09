@@ -4,7 +4,7 @@ Description: 'Lab1 - Basic Serverless Application'
 
 Parameters:
   EEAssetsBucket:
-    Description: "Region-specific assets S3 bucket name (e.g. ee-assets-prod-us-east-2)"
+    Description: "Region-specific assets S3 bucket name (e.g. ee-assets-prod-us-west-1)"
     Type: String
     Default: "aws-sam-cli-managed-default-samclisourcebucket-8tf6bmi4rdcx"
   EEAssetsKeyPrefix:
